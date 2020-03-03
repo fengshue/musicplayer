@@ -92,4 +92,4 @@ function successCb(data){
     playlist.render(data);
     bindTouch();
 }
-getData("/mock/data.json",successCb);   
+getData("/musicplayer/dist/mock/data.json",successCb);   
