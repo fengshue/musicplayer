@@ -1,0 +1,197 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul li{
+    list-style:none;
+}
+
+body{
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font : 14px/20px Helvetica, sans-serif,arial;
+}
+.wrapper{
+    width : 100vw;
+    height : 100vh;
+    padding-top: 60px;
+    box-sizing: border-box;
+    background-color: rgba(0 ,0 ,0 ,.3);
+    .song-img{
+        width:50%;
+        height:0;
+        padding-top: 50%; 
+        margin: 0 auto;
+        margin-bottom: 40px;
+        position: relative;
+        .img-wrapper{
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            img{
+                height:100%;
+                width:100%;
+            }
+        }
+    }
+    .song-info{
+        text-align: center;
+        height:126px;
+        .song-name{
+            font-size:24px;
+            line-height: 36px;
+            color: rgba(255 ,255 ,255 ,.86);
+            margin-bottom:8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .singer-name,
+        .album-name{
+            font-size: 16px;
+            height:16px;
+            line-height: 16px;
+            color:rgba(255 ,255 ,255 ,.86);
+            margin-bottom: 6px;
+        }
+    }
+    .song-play{
+        display: flex;
+        .cur-time,
+        .all-time{
+            height:40px;
+            width:60px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+        }
+        .pro-wrapper{
+            flex:1;
+            position: relative;
+            overflow: hidden;
+            padding-left: 3px;
+            padding-right: 3px;
+            .pro-top,
+            .pro-bottom{
+                height: 1px;
+                width:100%;
+                position: absolute;
+                top:20px;  
+             }
+             .pro-bottom{
+                background-color:rgba(255 ,255 ,255 ,.6);
+             }
+             .pro-top{
+                 background-color: #fff;
+                 transform: translateX(-100%);
+                 position: relative;
+                 .slider-point{
+                     height:21px;
+                     width:21px;
+                     position: absolute;
+                     top:-10px;
+                     right:-10px;
+                     &::after{
+                         width:5px;
+                         height:5px;
+                         content:"";
+                         border-radius: 50%;
+                         display:block;
+                         position: absolute;
+                         left:50%;
+                         top:50%;
+                         margin-left: -2.5px;
+                         margin-top: -2.5px;
+                         background-color: #fff;
+                     }
+                 }
+             }
+        }
+    }
+    .song-control{
+        position: absolute;
+        height:60px;
+        width:100%;
+        bottom:0;
+        background-color: rgba(0,0,0,.2);
+        display: flex;
+        .btn-wrapper{
+            flex:1;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+        }
+        .like-btn{
+            background-image: url(.A./img/icon-like.png);
+            &.liked{
+                background-image:url(../img/icon-like-solid.png)
+            }
+        }
+        .prev-btn{
+            background-image: url(../img/icon-prev.png)
+        }
+        .play-btn{
+            background-image: url(../img/icon-play.png);
+            &.playing{
+                background-image:url(../img/icon-pause.png) 
+            }
+        }
+        .next-btn{
+            background-image: url(../img/icon-next.png)
+        }
+        .list-btn{
+            background-image: url(../img/icon-list.png)
+         }
+    }
+} 
+
+.play-list{
+    position: fixed;
+    bottom:0;
+    background-color: #fff;
+    width:100%;
+    transform: translateY(100%);
+    transition: translateY ease-in; 
+    &.show{
+        transform: translateY(0);
+    }
+    .list-header,
+    .close-btn{
+         height:50px;
+         line-height:50px;
+         text-align:center;
+         font-size: 16px;
+         border-bottom: 1px solid rgba(0,0,0,.2);
+    }
+    li{
+        height:20px;
+        padding:10px;
+        h3{
+            color:rgba(0,0,0,.86);
+            span{
+                font-size:12px;
+                color:rgba(0 ,0 ,0 ,.6);
+            }
+        }
+        &.playing{
+            h3{
+                color : rgba(255,0,0,.86);
+                span{
+                    color : rgba(255,0,0,.6);
+                }
+            }
+        }
+    }
+}
